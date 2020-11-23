@@ -76,7 +76,9 @@ public class RationalNumber extends RealNumber {
   *reduced after construction.
   */
   private void reduce(){
-    
+    int gcd = gcd(numerator,denominator);
+    numerator = numerator / gcd;
+    denominator = denominator / gcd;
   }
   /******************Operations Return a new RationalNumber!!!!****************/
   /**
@@ -99,7 +101,7 @@ public class RationalNumber extends RealNumber {
   *Return a new RationalNumber that is the sum of this and the other
   */
   public RationalNumber add(RationalNumber other){
-    return null;
+    return new RationalNumber(reduce() + other.reduce());
   }
   /**
   *Return a new RationalNumber that this minus the other
