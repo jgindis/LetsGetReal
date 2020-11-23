@@ -56,10 +56,19 @@ public class RationalNumber extends RealNumber {
   *@return the value of the GCD
   */
   private static int gcd(int a, int b){
-    /*use euclids method or a better one*/
-    http://sites.math.rutgers.edu/~greenfie/gs2004/euclid.html
+    while (a % b != 0) {
+			if (a < b) {
+				int var = a;
+				a = b;
+				b = var;
+			}
+			int r = a % b;
+			if (r == 0) return b;
+			a = b;
+			b = r;
+		}
     return 0;
-  }
+	}
 
   /**
   *Divide the numerator and denominator by the GCD
@@ -67,7 +76,7 @@ public class RationalNumber extends RealNumber {
   *reduced after construction.
   */
   private void reduce(){
-
+    
   }
   /******************Operations Return a new RationalNumber!!!!****************/
   /**
